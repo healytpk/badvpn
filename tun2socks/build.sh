@@ -1,5 +1,5 @@
 #!/bin/sh
-gcc -o libtun2socks.so -shared -fPIC \
+gcc -o libtun2socks.so -shared -fPIC -Wl,--no-undefined \
 -rdynamic \
 CMakeFiles/badvpn-tun2socks.dir/tun2socks.c.o \
 CMakeFiles/badvpn-tun2socks.dir/SocksUdpGwClient.c.o \
@@ -14,4 +14,7 @@ CMakeFiles/badvpn-tun2socks.dir/SocksUdpGwClient.c.o \
 ../flowextra/libbadvpn-flowextra.a \
 ../system/libbadvpn-system.a \
 ../flow/libbadvpn-flow.a \
-../base/libbadvpn-base.a -lrt
+../base/libbadvpn-base.a \
+../socks_udp_client/libbadvpn-socks_udp_client.a \
+../system/libbadvpn-system.a \
+-lrt
